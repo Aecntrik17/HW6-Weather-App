@@ -25,5 +25,82 @@
     9.	Display days 2-6 in five day forecast section
     10.	Convert html framework to dynamic
  -->
-  <body></body>
+ <body>
+     <!-- container for the page -->
+ <div class="container-fluid">
+    <div id="header" class="row">
+      <div class="col-md-12">
+        <h1>Weather Dashboard</h1>
+      </div>
+    </div>
+    <!-- col for the search parameters -->
+    <div class="row">
+      <div id="search" class="col-md-3">
+        <div class="row">
+          <div id="inputCity" class="col-md-12">
+            <form>
+              <div class="form-group">
+                <label for="citySearch">Search for a city</label>
+                <input
+                  id="city-search"
+                  type="text"
+                  class="form-control"
+                  class="city-search"
+                  placeholder="enter city name"
+                />
+              </div>
+            </form>
+            <!-- button to activate the search -->
+            <button type="button" id="searchBtn">Search</button>
+            <button type = "button" id="clear"> Clear Reaults</button>
+          </div>
+        </div>
+        <!-- new row for searchd cities display -->
+        <div class="row">
+          <div id="buttons-view" class="col-md-12">
+
+          </div>
+        </div>
+      </div>
+      <!-- col to hold and display all of the results -->
+      <div id="results" class="col-md-9">
+        <div class="row">
+            <!-- this will house all of the current data -->
+          <div id="current" class="col-md-12">
+            <div id="welcome">
+              <h3>City Name:</h3>
+              <p>Temperature (F)</p>
+              <p>Humidity</p>
+              <p>Wind Speed</p>
+              <p>UV Index:</p>
+            </div>
+            <div class="city-display"></div>
+            <div class="temp"></div>
+            <div class="humidity"></div>
+            <div class="wind-speed"></div>
+            <div class="uv-index"> UV Index:<span id="uvi"></span></div>
+            </div>
+          </div>
+          <!-- row to hold the display of 5 day weather content -->
+          <div class="row">
+            <div id="future" class="col-md-12">
+              <h2>5-Day Forecast:</h2>
+              <div id="cards">
+                <div class="row">
+                  <div id="fiveDay" class="col-md-4">
+                    <div id="five-day-results"></div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- linking internal js files, moment, and jquery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script type="text/javascript" src="./script.js"></script>
+</body>
 </html>
