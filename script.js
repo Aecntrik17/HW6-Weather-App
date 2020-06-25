@@ -51,3 +51,39 @@ function displayCityInfo(event) {
       method: "GET",
     }).then(function (fiveDayResponse) {
       console.log(fiveDayResponse);
+
+            // retrieve current weather icon
+            let icon = fiveDayResponse.current.weather[0].icon;
+
+            // converting the data for ICON to an image
+            let iconIMG =
+              "<img src=http://openweathermap.org/img/w/" + icon + ".png>";
+      
+            // retrieve results for City, current date and icon append to the appropriate div
+            $(".city-display").html(response.city.name + currentDate + iconIMG);
+            // retrieve results for current Humidity and append to the appropriate div and append to html
+            $(".humidity").html(
+              " Humidity: " + fiveDayResponse.current.humidity + "%"
+            );
+            // retrieve results for current Wind Speed and append to the appropriate div
+            $(".wind-speed").html(
+              " Wind Speed: " + fiveDayResponse.current.wind_speed.toFixed(1)
+            );
+            // set current tempF variable to the results of the conversion of the kalvin within the object
+            var tempF = (fiveDayResponse.current.temp - 273.15) * 1.8 + 32;
+            // apply termerature text to html
+            $(".temp").text("Temperature (F) " + tempF.toFixed(1));
+      
+            // retrieve results for current UV-Index and append to the appropriate div
+            $("#uvi").html(fiveDayResponse.current.uvi);
+            // *****************************************************************
+      
+            let uvi = fiveDayResponse.current.uvi;
+      
+            // comparing current time to time of slot as it runs through the loop
+            if (uvi < 6) {
+              // change the color of the line, create "greeen, orange, red" class in css
+              $("#uvi").addClass("green");
+            } else {
+              $("#uvi").addClass("red");
+            }
