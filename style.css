@@ -1,0 +1,47 @@
+#header {
+  border-style: solid;
+  background-color: darkgray;
+  text-align: center;
+  color: white;
+}
+
+#content {
+  border-style: solid;
+  margin: 10px;
+  height: 700px;
+}
+
+#search {
+  border-style: solid;
+  float: left;
+  height: 650px;
+}
+
+#results {
+  border-style: solid;
+  clear: both;
+}
+
+#five-day-results {
+  display: flex;
+  color: white;
+}
+
+.city {
+  margin: 20px;
+}
+
+.green {
+  background-color: green;
+  color: white;
+}
+
+.orange {
+  background-color: orange;
+  color: white;
+}
+
+.red {
+  background-color: red;
+  color: white;
+}
