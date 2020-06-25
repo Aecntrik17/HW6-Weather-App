@@ -112,3 +112,50 @@ function displayCityInfo(event) {
         var time = date + " " + month + " " + year;
         return time;
       }
+
+      make sure the div where results go is empty
+      $("#five-day-results").empty();
+      //   for loop for 5-day forecast terperature results
+      for (var i = 1; i < 6; i++) {
+        // setting variables with retrieved data from ajax call object
+        let date = timeConverter(fiveDayResponse.daily[i].dt);
+        let iconFive = fiveDayResponse.daily[i].weather[0].icon;
+        let iconFiveIMG =
+          "<img src=http://openweathermap.org/img/w/" + iconFive + ".png>";
+        let tempFive = (fiveDayResponse.daily[i].temp.day - 273.15) * 1.8 + 32;
+        let humidityFive = fiveDayResponse.daily[i].humidity;
+
+        // Dynamically creating card to hold 5 day results
+        // Creating a div to hold the searched city information
+        var cityDiv = $("<div class='city card-bodytext-white bg-primary'>");
+
+        // Creating an element to have the date displayed
+        var pOne = $("<p>").text(date);
+
+        // Displaying the date variable for the loop
+        cityDiv.append(pOne);
+
+        // create element for iconFive
+        let icon = $(
+          "<img src=http://openweathermap.org/img/w/" + iconFive + ".png>"
+        );
+        cityDiv.append(icon);
+
+        // Creating an element to hold the temperature
+        var pThree = $("<p>").text("Temp: (F): " + tempFive.toFixed(1));
+
+        // Appending the temperature
+        cityDiv.append(pThree);
+
+        // Creating an element to hold the humidity
+        var pFour = $("<p>").text(" Humidity: " + humidityFive + "%");
+
+        // Displaying the humidity
+        cityDiv.append(pFour);
+
+        // Putting the new city div into the five day section
+        $("#five-day-results").append(cityDiv);
+      }
+    });
+  });
+}
