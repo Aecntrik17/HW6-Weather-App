@@ -34,3 +34,20 @@ function displayCityInfo(event) {
       method: "GET",
     }).then(function (response) {
       console.log(response);
+
+          // setting lat and lon variables to that we can call the currentQueryURL
+    var lat = response.city.coord.lat;
+    var lon = response.city.coord.lon;
+    // setting current queryURL, retrieves today's data and next 7 days
+    var currentQueryURL =
+      "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+      lat +
+      "&lon=" +
+      lon +
+      apiKey;
+    // requesting the JSON object for the current data and next 7 days
+    $.ajax({
+      url: currentQueryURL,
+      method: "GET",
+    }).then(function (fiveDayResponse) {
+      console.log(fiveDayResponse);
