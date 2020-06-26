@@ -169,11 +169,6 @@ function renderButtons() {
   }
 }
 
-// $("#clear").on("click", function () {
-//   console.log("clear is working");
-//   localStorage.clear();
-
-// });
 // Adding a click event listener to all elements with a class of "city-btn"
 $(document).on("click", ".city-btn", displayCityInfo);
 // Calling the renderButtons function to display the initial buttons
